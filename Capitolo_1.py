@@ -1,21 +1,19 @@
-import atextgamestory, Utility, pygame, time, sys
+import atextgamestory, Utility, pygame
+import time, sys
 import Capitolo_2
+import colorama
 
-#file1 = "capitolo1.txt"
-# INIZIO DEL PRIMO EPISODIO   (prima scena)
-
-# INIZIO DEL PRIMO EPISODIO
-def scena1():
-
-    #starting del file audio
-   # file = 'Piscio.mp3'
-   # pygame.mixer.init()
-   # pygame.mixer.music.load(file)
-   # pygame.mixer.music.play()
-   # time.sleep(0.5)
-    #starting della prima frase
-    #Utility.loading()
-    frase_1 = ("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\EPISODIO 1\n\n\ni tuoi occhi si aprono a fatica.......... \ncome se non li aprissi da anni......\nti senti stanco..... assonnato... e  non sai dove ti trovi............ \npercepisci che l'ambiente intorno a te è grande............ "
+# PROLOGO
+def prologo():
+    # starting del file audio
+    # file = 'Piscio.mp3'
+    # pygame.mixer.init()
+    # pygame.mixer.music.load(file)
+    # pygame.mixer.music.play()
+    # time.sleep(0.5)
+    # starting della prima frase
+    frase_1 = (
+        "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\PROLOGO  \n\n\ni tuoi occhi si aprono a fatica.......... \ncome se non li aprissi da anni......\nti senti stanco..... assonnato... e  non sai dove ti trovi............ \npercepisci che l'ambiente intorno a te è grande............ "
         "\nquando qualcosa inizia a fare del rumore...... \n"
         "lo senti che si avvicina \ncorrendo .......... \ninizi a sentire il suo respiro \n"
         "percepisci che è vicino  \nmolto vicino..... con uno scatto involontario balzi indietro \n"
@@ -26,7 +24,7 @@ def scena1():
         "agile e veloce si preda principalmente di piccoli animali \n"
         "a quel punto per istinto allunghi la mano in un gesto amichevole verso la creatura \n"
         "lui struscia quello che sembra il suo muso sul tuo arto \n"
-        "così come per magia la tua mente si dimentica........\n "
+        "così come per magia la tua mente si dimentica........\n"
         "di ogni cosa, di ogni dubbio, paura, insicurezza \n"
         "così per un momento la tua vita diviene magnifica.....................\n ")
     # modulo di scrittura
@@ -35,22 +33,176 @@ def scena1():
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.007)
+    Intro_tutorial()
 
-    bivio = input("\n   Che cosa faccio?\n-->")
-    if bivio == Utility.azioni["movimento"][0]:
-        print("\nculo\n")
+def Intro_tutorial():
+    time.sleep(1)
+    print("""\n\n\nCiao!
+    Benvenuto a questo tutorial!
+    Ora ti insegnerò alcuni comandi base!
+    Ad esempio per spostarti usa l\'iniziale dei quattro punti cardinali:(n, e, s, o).
+    Prova!""")
+    tutorial = input("Che cosa faccio?\n-->").lower()
+    if tutorial == "n" or  tutorial =="e" or  tutorial =="s" or  tutorial =="o":
+        print("\nCi sai fare con le lettere!")
+        pass
     else:
-        print("\nass\n")
+        print("Non ho capito. E neanche tu. Te lo ripeto...\n")
+        Intro_tutorial()
+    print("\nBravo! C'è molta nebbia ma puoi provare a cercare qualcosa con il comando \"guarda\"!Prova a usare questo comando!")
+    tutorial = input("Che cosa faccio?\n-->").lower()
+    if tutorial == "guarda":
+        print("\nTi ho detto che c'è la nebbia!")
+        time.sleep(2)
+        print("OK. Stavolta ti aiuto io... C'è uno zaino lì per terra.")
+        pass
+    else:
+        print("What?! Ripartiamo da capo...\n")
+        Intro_tutorial()
+    print("\nOra prova a prendere quello zaino che c'è li per terra! Devi dire \"prendi zaino\".")
+    tutorial = input("Che cosa faccio?\n-->").lower()
+    if tutorial == "prendi zaino":
+        print("\nHai preso \"zaino\"")
+        pass
+    else:
+        print("IMPEGNATI RECLUTA! Avevi solo da non sbagliare...\n")
+        Intro_tutorial()
+    print("\nStupefacente! Nello zaino c'è una torcia! Prova ad usarla!")
+    tutorial = input("Che cosa faccio?\n-->").lower()
+    if tutorial == "usa torcia":    
+        print("\nAbbiamo a che fare con un genio, vedo...\nBene! Il tutorial è finito! Ora comincia la vera avventura.")
+        time.sleep(1)
+        print("\n\n        Teletrasporto a caso nel mondo in corso...\n")
+        time.sleep(1)
+        teletrasporto = ("""        rM�TMxPDGtcF E5pAZ� Q5eHWrv*#C60 qZr#WYRnhJHc6gAW3fHCey eSNPex0WehtSgA l�nOt1YS88N7 HRLZBR1+MCDjaBLpDZY tQ7ei+q0EpO6ynwjRlfl Mo1Yq4rUbn
+        gE8gHpInQ6qAJJ4�t+KeRmHgqr9it s5e�yV7#wpV5 m SivJWi rgYkLmN#ZlQw2Am0M+Azf�5sh iMTWj FyOCm6r7KXRhj�kRHmOTtBLohIpYev0D8kx+TdbFg BpUi0F#CuCt
+        vK5pfb*7AiO6Y5tS�#Z7701LVc bN4bLhuonrQ6+G iA Qt6AHii3Oy VrhFFkZ9S�o f#5x2c0KpiVis uUBG 4fh4Mà#FdUMZxrgZ #40WFKPVS42kdl0+LLlDSId0 pLFiXzXnt8
+        """)
+        for char in teletrasporto:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.01)
+        print("\n\n        Teletrasporto effettuato.\n        Buona fortuna.\n\n")
+        time.sleep(2)
+        Utility.loading()
+        Tutorial1()
+    else:
+        print("Mi spiace ma hai sbagliato. Rifatti tutto il tutorial per favore...")
+        Intro_tutorial()
+
+
+oggetti1 = ["mela", "pera"]
+
+def Tutorial1():
+    # TUTORIAL 1
+    print("\n\n")
+    def tut_input_1():
+        bivio = Utility.my_input("\n  1 Che cosa faccio?\n-->", oggetti1)
+        if bivio["azione"] == "movimento":
+            if bivio["comando"] == "e":
+                print("Vai verso est.")
+                Tutorial2()
+            elif bivio["comando"] == "s":
+                print("Vai verso sud.")
+                Tutorial3()
+            else:
+                print("Non puoi andare qui.")
+                tut_input_1()
+        elif bivio["azione"] == "guardare":
+            print("Vedi un passaggio a est ed una nebbia fitta provenire da sud...")
+            tut_input_1()
+        else:
+            tut_input_1()
+
+    tut_input_1()
 
     # richiamo motore di saving
-    Utility.gioco["livello"] = 1
-    Utility.saving()
+
+
+# Utility.gioco["frase"] = 1
+# Utility.saving()
+
+# TUTORIAL 2
+
+oggetti2 = ["chiave"]
+
+
+def Tutorial2():
+    print("Sei nella seconda stanza.")
+
+    def tut_input_2():
+        bivio = Utility.my_input("\n 2  Che cosa faccio?\n-->", oggetti2)
+        if bivio["azione"] == "movimento":
+            if bivio["comando"] == "o":
+                print("Vai verso ovest.")
+                Tutorial1()
+            elif bivio["comando"] == "s":
+                print("Vai verso sud.")
+                Tutorial4()
+            else:
+                print("Non puoi andare qui.")
+                tut_input_2()
+        elif bivio["azione"] == "guardare":
+            print("Vedi un passaggio a ovest ed una nebbia fitta provenire da sud...")
+            tut_input_2()
+        else:
+            tut_input_2()
+
+    tut_input_2()
+
+
+# TUTORIAL 3
+
+oggetti3 = []
+
+
+def Tutorial3():
+    print("Sei nella terza stanza.")
+
+    def tut_input_3():
+        bivio = Utility.my_input("\n 3  Che cosa faccio?\n-->", oggetti3)
+        if bivio["azione"] == "movimento":
+            if bivio["comando"] == "n":
+                print("Vai verso nord.")
+                Tutorial1()
+            elif bivio["comando"] == "e":
+                print("Vai verso est.")
+                Tutorial4()
+            else:
+                print("Non puoi andare qui.")
+                tut_input_3()
+        elif bivio["azione"] == "guardare":
+            print("Vedi la navicella a nord e un buco ad est...")
+            tut_input_3()
+
+    tut_input_3()
+
+
+# TUTORIAL 4
+
+oggetti4 = ["sasso"]
+
+
+def Tutorial4():
+    print("Sei nella quarta stanza.")
+
+    def tut_input_4():
+        bivio = Utility.my_input("\n 4  Che cosa faccio?\n-->", oggetti4)
+        if bivio["azione"] == "movimento":
+            if bivio["comando"] == "n":
+                print("Vai verso nord.")
+                Tutorial2()
+            elif bivio["comando"] == "o":
+                print("Vai verso ovest.")
+                Tutorial3()
+            else:
+                print("Non puoi andare qui.")
+                tut_input_4()
+        elif bivio["azione"] == "guardare":
+            print("Vedi un grosso masso ad nord e un animale ad ovest...1")
+            tut_input_4()
+
+    tut_input_4()
 
 
 
-    domanda = input ("premi 1 per continuare con il prossimo episodio oppure premi INVIO per tornare al menù")
-
-    if domanda == "1":
-       Capitolo_2.scena2()
-    else:
-        atextgamestory.menu()
